@@ -3,13 +3,12 @@
 ## Projet: Application de Gestion de Projets de Construction
 
 ### Contexte du Projet
-En tant que développeur full stack freelance, vous avez été sollicité pour créer une application de gestion de projets de construction pour l’entreprise « ConstructionXpert Services ». L'objectif est de fournir à l'équipe de construction un outil efficace pour planifier et organiser les projets de construction. L'application offrira une interface conviviale pour visualiser, mettre à jour et supprimer des projets, des tâches et des ressources, tout en garantissant la sécurité des données et l'intégrité du système.
+Cette application vise à centraliser la gestion des projets de construction, en offrant des fonctionnalités complètes pour la création, la mise à jour, l'affichage et la suppression des projets, des tâches et des ressources associées. Elle intègre des fonctionnalités de gestion des utilisateurs et permet l'exportation des données en formats PDF et Excel.
+
 
 ### Acteur
 Noureddine Bouzire
 
-### Description du Projet
-Cette application vise à centraliser la gestion des projets de construction, en offrant des fonctionnalités complètes pour la création, la mise à jour, l'affichage et la suppression des projets, des tâches et des ressources associées. Elle intègre des fonctionnalités de gestion des utilisateurs et permet l'exportation des données en formats PDF et Excel.
 
 ### Technologies Utilisées
 - **Frontend:**
