@@ -98,7 +98,7 @@ public class TaskServlet extends HttpServlet {
         String status = request.getParameter("status");
         String projectIdStr = request.getParameter("projectId");
 
-        // Handle empty fields as null values
+
         int projectId = Integer.parseInt(projectIdStr);
         Date startDate = null;
         Date endDate = null;
@@ -126,13 +126,6 @@ public class TaskServlet extends HttpServlet {
         String status = request.getParameter("status");
         String projectIdStr = request.getParameter("projectId");
 
-        // Logging parameters for debugging
-        System.out.println("ID: " + idStr);
-        System.out.println("Description: " + description);
-        System.out.println("Start Date: " + startDateStr);
-        System.out.println("End Date: " + endDateStr);
-        System.out.println("Status: " + status);
-        System.out.println("Project ID: " + projectIdStr);
 
         if (idStr == null || projectIdStr == null || idStr.isEmpty() || projectIdStr.isEmpty()) {
             throw new ServletException("ID and Project ID are required.");
