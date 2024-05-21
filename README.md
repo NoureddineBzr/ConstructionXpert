@@ -60,13 +60,6 @@ Noureddine Bouzire
 #### Maquettes
 - Création des pages nécessaires en utilisant Figma.
 
-### Notes Additionnelles
-#### Bonus
-- **Authentification:** Implémentation de l'authentification des utilisateurs pour l'accès aux fonctionnalités protégées à l'aide de filtres Java EE.
-- **Gestion des Sessions:** Maintenir l'état de l'utilisateur.
-- **Exportation des Données:** Possibilité d'exporter les ressources en format PDF ou Excel.
-
-
 
 ### Contact
 Pour toute question ou assistance, veuillez contacter moi a [noureddine.bouzire@hotmail.com].
