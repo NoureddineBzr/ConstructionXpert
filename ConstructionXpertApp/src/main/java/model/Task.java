@@ -10,7 +10,7 @@ public class Task {
     private String status;
     private int projectId;
 
-    // Constructeurs
+
     public Task() {}
 
     public Task(String description, Date startDate, Date endDate, String status, int projectId) {
@@ -21,7 +21,7 @@ public class Task {
         this.projectId = projectId;
     }
 
-    // Getters et setters
+
     public int getId() {
         return id;
     }
