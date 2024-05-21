@@ -14,7 +14,6 @@ public class ProjectDAO {
     private Connection connection;
 
     public ProjectDAO() {
-        // Initialize the connection in the constructor
         this.connection = DatabaseConnection.getConnection();
         if (this.connection == null) {
             throw new RuntimeException("Failed to connect to the database");
@@ -102,7 +101,7 @@ public class ProjectDAO {
             PreparedStatement deleteTasksStmt = connection.prepareStatement(deleteTasksQuery);
             deleteTasksStmt.setInt(1, id);
             deleteTasksStmt.executeUpdate();
-            
+
             String query = "DELETE FROM projects WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
