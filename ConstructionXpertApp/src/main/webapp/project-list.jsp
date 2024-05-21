@@ -10,36 +10,30 @@
 <div class="container">
     <h1 class="mt-5">Liste des Projets</h1>
     <a href="ProjectServlet?action=new" class="btn btn-primary mb-3">Créer un Nouveau Projet</a>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Date de Début</th>
-            <th>Date de Fin</th>
-            <th>Budget</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="row">
         <c:forEach var="project" items="${projectList}">
-            <tr>
-                <td>${project.id}</td>
-                <td>${project.name}</td>
-                <td>${project.description}</td>
-                <td>${project.startDate}</td>
-                <td>${project.endDate}</td>
-                <td>${project.budget}</td>
-                <td>
-                    <a href="ProjectServlet?action=edit&id=${project.id}" class="btn btn-warning">Modifier</a>
-                    <a href="ProjectServlet?action=delete&id=${project.id}" class="btn btn-danger">Supprimer</a>
-                </td>
-            </tr>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${project.name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">ID: ${project.id}</h6>
+                        <p class="card-text">
+                            <strong>Description:</strong> ${project.description}<br>
+                            <strong>Date de Début:</strong> ${project.startDate}<br>
+                            <strong>Date de Fin:</strong> ${project.endDate}<br>
+                            <strong>Budget:</strong> ${project.budget}
+                        </p>
+                        <div>
+                        <a href="ProjectServlet?action=edit&id=${project.id}" class="btn btn-warning">Modifier</a>
+                        <a href="ProjectServlet?action=delete&id=${project.id}" class="btn btn-danger">Supprimer</a>
+                        <a href="TaskServlet?action=list&projectId=${project.id}" class="btn btn-info">Gérer les Tâches</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </c:forEach>
-        </tbody>
-    </table>
+    </div>
 </div>
 </body>
 </html>
-
+p
