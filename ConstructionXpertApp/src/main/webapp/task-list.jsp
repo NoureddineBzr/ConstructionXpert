@@ -24,6 +24,8 @@
                         </p>
                         <a href="TaskServlet?action=edit&id=${task.id}&projectId=${projectId}" class="btn btn-warning">Modifier</a>
                         <a href="TaskServlet?action=delete&id=${task.id}&projectId=${projectId}" class="btn btn-danger">Supprimer</a>
+                        <a href="ResourceServlet?action=list&taskId=${task.id}" class="btn btn-info">Gérer les Ressources</a>
+
                     </div>
                 </div>
             </div>
