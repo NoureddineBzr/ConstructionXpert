@@ -97,10 +97,6 @@ public class ProjectDAO {
     public void deleteProject(int id) {
         try {
 
-            String deleteTasksQuery = "DELETE FROM tasks WHERE project_id = ?";
-            PreparedStatement deleteTasksStmt = connection.prepareStatement(deleteTasksQuery);
-            deleteTasksStmt.setInt(1, id);
-            deleteTasksStmt.executeUpdate();
 
             String query = "DELETE FROM projects WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);

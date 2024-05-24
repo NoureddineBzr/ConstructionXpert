@@ -61,6 +61,7 @@ public class ProjectServlet extends HttpServlet {
         }
     }
 
+
     private void listProjects(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Project> projectList = projectDAO.getAllProjects();
         request.setAttribute("projectList", projectList);

@@ -28,7 +28,11 @@
         </div>
         <div class="form-group">
             <label for="status">Statut</label>
-            <input type="text" class="form-control" id="status" name="status" value="${task != null ? task.status : ''}">
+            <select class="form-control" id="status" name="status">
+                <option value="a faire" ${task != null && task.status == 'a faire' ? 'selected' : ''}>À faire</option>
+                <option value="en cours" ${task != null && task.status == 'en cours' ? 'selected' : ''}>En cours</option>
+                <option value="terminee" ${task != null && task.status == 'terminee' ? 'selected' : ''}>Terminée</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">${task != null ? 'Mettre à Jour' : 'Créer'}</button>
     </form>
