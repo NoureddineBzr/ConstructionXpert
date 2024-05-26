@@ -6,10 +6,10 @@ public class Resource {
     private String type;
     private int quantity;
     private int taskId;
-    private String suppName;  // Add this field
-    private String suppContact;  // Add this field
+    private String suppName;
+    private String suppContact;
 
-    // Getters and Setters for all fields, including the new ones
+
     public int getId() {
         return id;
     }

@@ -19,12 +19,14 @@ public class ResourceDAO {
 
     public void addResource(Resource resource) {
         try {
-            String query = "INSERT INTO resources (name, type, quantity, task_id) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO resources (name, type, quantity, task_id, supp_name, supp_contact) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, resource.getName());
             preparedStatement.setString(2, resource.getType());
             preparedStatement.setInt(3, resource.getQuantity());
             preparedStatement.setInt(4, resource.getTaskId());
+            preparedStatement.setString(5, resource.getSuppName());
+            preparedStatement.setString(6, resource.getSuppContact());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,12 +35,14 @@ public class ResourceDAO {
 
     public void updateResource(Resource resource) {
         try {
-            String query = "UPDATE resources SET name = ?, type = ?, quantity = ? WHERE id = ?";
+            String query = "UPDATE resources SET name = ?, type = ?, quantity = ?, supp_name = ?, supp_contact = ? WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, resource.getName());
             preparedStatement.setString(2, resource.getType());
             preparedStatement.setInt(3, resource.getQuantity());
-            preparedStatement.setInt(4, resource.getId());
+            preparedStatement.setString(4, resource.getSuppName());
+            preparedStatement.setString(5, resource.getSuppContact());
+            preparedStatement.setInt(6, resource.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,6 +74,8 @@ public class ResourceDAO {
                 resource.setType(resultSet.getString("type"));
                 resource.setQuantity(resultSet.getInt("quantity"));
                 resource.setTaskId(resultSet.getInt("task_id"));
+                resource.setSuppName(resultSet.getString("supp_name"));
+                resource.setSuppContact(resultSet.getString("supp_contact"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -91,6 +97,8 @@ public class ResourceDAO {
                 resource.setType(resultSet.getString("type"));
                 resource.setQuantity(resultSet.getInt("quantity"));
                 resource.setTaskId(resultSet.getInt("task_id"));
+                resource.setSuppName(resultSet.getString("supp_name"));
+                resource.setSuppContact(resultSet.getString("supp_contact"));
                 resources.add(resource);
             }
         } catch (SQLException e) {

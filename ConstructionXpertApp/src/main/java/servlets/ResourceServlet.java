@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @WebServlet("/ResourceServlet")
@@ -91,43 +88,34 @@ public class ResourceServlet extends HttpServlet {
         request.getRequestDispatcher("resource-form.jsp").forward(request, response);
     }
 
-    private void createResource(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void createResource(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String name = request.getParameter("name");
         String type = request.getParameter("type");
-        String quantityStr = request.getParameter("quantity");
-        String taskIdStr = request.getParameter("taskId");
-
-        if (taskIdStr == null || taskIdStr.isEmpty()) {
-            throw new ServletException("Task ID is required.");
-        }
-
-        int taskId = Integer.parseInt(taskIdStr);
-        int quantity = Integer.parseInt(quantityStr);
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        int taskId = Integer.parseInt(request.getParameter("taskId"));
+        String suppName = request.getParameter("suppName");
+        String suppContact = request.getParameter("suppContact");
 
         Resource newResource = new Resource();
         newResource.setName(name);
         newResource.setType(type);
         newResource.setQuantity(quantity);
         newResource.setTaskId(taskId);
+        newResource.setSuppName(suppName);
+        newResource.setSuppContact(suppContact);
 
         resourceDAO.addResource(newResource);
         response.sendRedirect("ResourceServlet?action=list&taskId=" + taskId);
     }
 
-    private void updateResource(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idStr = request.getParameter("id");
+    private void updateResource(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String type = request.getParameter("type");
-        String quantityStr = request.getParameter("quantity");
-        String taskIdStr = request.getParameter("taskId");
-
-        if (idStr == null || taskIdStr == null || idStr.isEmpty() || taskIdStr.isEmpty()) {
-            throw new ServletException("ID and Task ID are required.");
-        }
-
-        int id = Integer.parseInt(idStr);
-        int taskId = Integer.parseInt(taskIdStr);
-        int quantity = Integer.parseInt(quantityStr);
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        int taskId = Integer.parseInt(request.getParameter("taskId"));
+        String suppName = request.getParameter("suppName");
+        String suppContact = request.getParameter("suppContact");
 
         Resource resource = new Resource();
         resource.setId(id);
@@ -135,22 +123,17 @@ public class ResourceServlet extends HttpServlet {
         resource.setType(type);
         resource.setQuantity(quantity);
         resource.setTaskId(taskId);
+        resource.setSuppName(suppName);
+        resource.setSuppContact(suppContact);
 
         resourceDAO.updateResource(resource);
         response.sendRedirect("ResourceServlet?action=list&taskId=" + taskId);
     }
 
     private void deleteResource(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String idStr = request.getParameter("id");
-        String taskIdStr = request.getParameter("taskId");
-
-        if (idStr == null || idStr.isEmpty() || taskIdStr == null || taskIdStr.isEmpty()) {
-            throw new ServletException("Resource ID or Task ID is missing for delete resource.");
-        }
-
-        int id = Integer.parseInt(idStr);
-        int taskId = Integer.parseInt(taskIdStr);
+        int id = Integer.parseInt(request.getParameter("id"));
         resourceDAO.deleteResource(id);
+        String taskId = request.getParameter("taskId");
         response.sendRedirect("ResourceServlet?action=list&taskId=" + taskId);
     }
 }
