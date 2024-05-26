@@ -7,17 +7,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f8f9fa;
+            display: flex;
         }
-        .container {
-            padding-top: 50px;
+        .sidebar {
+            background-color: #fff;
+            width: 200px;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar img {
+            width: 80px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .sidebar p {
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+        .sidebar .nav-item {
+            list-style: none;
+            padding: 10px;
+        }
+        .sidebar .nav-link {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            width: calc(100% - 220px);
+        }
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .btn-create {
+            display: block;
+            margin: 20px 0;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        .btn-create:hover {
+            background-color: #0056b3;
         }
         .card {
-            background-color: #ffffff;
+            background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
@@ -26,71 +87,11 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
         }
-        .btn {
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        .btn-primary {
-            background-color: #4caf50;
-            border-color: #4caf50;
-        }
-        .btn-primary:hover {
-            background-color: #66bb6a;
-            border-color: #66bb6a;
-        }
-        .btn-warning {
-            background-color: #ffb74d;
-            border-color: #ffb74d;
-        }
-        .btn-warning:hover {
-            background-color: #ffa726;
-            border-color: #ffa726;
-        }
-        .btn-danger {
-            background-color: #ef5350;
-            border-color: #ef5350;
-        }
-        .btn-danger:hover {
-            background-color: #e57373;
-            border-color: #e57373;
-        }
-        .btn-info {
-            background-color: #64b5f6;
-            border-color: #64b5f6;
-        }
-        .btn-info:hover {
-            background-color: #42a5f5;
-            border-color: #42a5f5;
-        }
-        .btn-outline-light {
-            color: #000;
-            border-color: #4caf50;
-        }
-        .btn-outline-light:hover {
-            background-color: #4caf50;
-            border-color: #4caf50;
-            color: #fff;
-        }
-        .btn-outline-light:focus {
-            box-shadow: none;
-        }
-        .header {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            margin: 0;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .btn-create {
-            margin-bottom: 20px;
-        }
         .card-body {
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .card-title {
             font-weight: 700;
@@ -103,45 +104,66 @@
             margin-bottom: 20px;
         }
         .card-buttons {
-            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
-        .navbar-brand img {
-            height: 50px;
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #000;
+            transition: background-color 0.3s;
         }
-        .nav-item .nav-link.active {
-            font-weight: bold;
-            color: #4caf50 !important;
+        .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+        .btn-info {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #138496;
         }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <img src="https://i.ibb.co/QNyXFY5/images.png">
-        Admin Name
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link active" href="projects.jsp">Projects</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="tasks.jsp">Tasks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="resources.jsp">Resources</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="container">
+<div class="sidebar">
+    <img src="https://i.ibb.co/QNyXFY5/images.png" alt="Admin Image">
+    <p>ADMIN</p>
+    <ul>
+        <li class="nav-item">
+            <a class="nav-link active" href="projects.jsp"><i class="fas fa-project-diagram"></i> Projects</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="tasks.jsp"><i class="fas fa-tasks"></i> Tasks</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="resources.jsp"><i class="fas fa-tools"></i> Resources</a>
+        </li>
+    </ul>
+</div>
+
+<div class="main-content">
     <div class="header">
-        <h1>Admin Dashboard</h1>
+        <i class="fas fa-tachometer-alt"></i> Projects Management
     </div>
-    <button class="btn btn-primary btn-create" data-toggle="modal" data-target="#projectModal" onclick="resetForm()">Create New Project</button>
+    <button class="btn-create" data-toggle="modal" data-target="#projectModal" onclick="resetForm()">
+        <i class="fas fa-plus-circle"></i> Create new Project
+    </button>
     <div class="row">
         <c:forEach var="project" items="${projectList}">
             <div class="col-md-4 mb-4">
@@ -155,9 +177,15 @@
                             <strong>Budget:</strong> ${project.budget}
                         </p>
                         <div class="card-buttons">
-                            <button class="btn btn-warning mr-2" data-toggle="modal" data-target="#projectModal" onclick="populateForm(${project.id}, '${project.name}', '${project.description}', '${project.startDate}', '${project.endDate}', ${project.budget})">Edit</button>
-                            <a href="ProjectServlet?action=delete&id=${project.id}" class="btn btn-danger mr-2">Delete</a>
-                            <a href="TaskServlet?action=list&projectId=${project.id}" class="btn btn-info">Manage Tasks</a>
+                            <button class="btn btn-warning" data-toggle="modal" data-target="#projectModal" onclick="populateForm(${project.id}, '${project.name}', '${project.description}', '${project.startDate}', '${project.endDate}', ${project.budget})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <a href="ProjectServlet?action=delete&id=${project.id}" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </a>
+                            <a href="TaskServlet?action=list&projectId=${project.id}" class="btn btn-info">
+                                <i class="fas fa-tasks"></i> Manage Tasks
+                            </a>
                         </div>
                     </div>
                 </div>
