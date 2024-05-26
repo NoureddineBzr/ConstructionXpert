@@ -9,16 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f25fd7-8fdc-430f-be3b-04a94fc10421" name="Changes" comment="">
+    <list default="true" id="b9f25fd7-8fdc-430f-be3b-04a94fc10421" name="Changes" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ProjectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/ProjectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/ProjectServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connection/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/project-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/project-form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/project-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/project-list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resource-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resource-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/task-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/task-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +27,8 @@
       <list>
         <option value="package-info" />
         <option value="Class" />
-        <option value="Servlet" />
         <option value="Jsp File" />
+        <option value="Servlet" />
       </list>
     </option>
   </component>
@@ -199,12 +195,26 @@
       <workItem from="1716480330858" duration="2871000" />
       <workItem from="1716545763176" duration="765000" />
       <workItem from="1716546657644" duration="3474000" />
-      <workItem from="1716558868399" duration="2048000" />
+      <workItem from="1716558868399" duration="5331000" />
+      <workItem from="1716566729196" duration="16116000" />
     </task>
+    <task id="LOCAL-00001" summary="Update">
+      <option name="closed" value="true" />
+      <created>1716562539935</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716562539935</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
